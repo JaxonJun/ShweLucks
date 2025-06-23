@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latest News</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">ShweLucks</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="apply.html" class="apply-button">Apply</a>
+    </div>
+  </nav>
+  <main>
+    <div class="animation-newstitle">
+    <h1>Latest News</h1>
+    </div>
+    <div class="card-container" id="news-list"></div>
+  </main>
+  <script type="module" src="/src/loadNews.js"></script>
+  <script type="module" src="/src/main.js"></script>
+
+
+  <script>
+function trackClick(page, slot) {
+  fetch("/track-click", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      page,
+      slot,
+      time: new Date().toISOString()
+    })
+  });
+}
+</script>
+
+</body>
+</html>

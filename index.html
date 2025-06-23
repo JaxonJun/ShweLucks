@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShweLucks</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">ShweLucks</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="https://yourlink.com" onclick="trackClick('home', 'apply')" class="apply-button">Apply</a>
+    </div>
+  </nav>
+
+  <section class="carousel-section">
+  <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-slide">
+      <a href="https://www.shwelucks.com/pages/desktop/index" target="_blank">
+      <img src="images/list/1.jpg" alt="Bufflo Win">
+      </a>
+      <div class="carousel-caption">Bufflo Win</div>
+    </div>
+    <div class="carousel-slide">
+      <a href="https://www.shwelucks.com/pages/desktop/index" target="_blank">
+      <img src="images/list/2.jpg" alt="Anubis">
+      </a>
+      <div class="carousel-caption">Anubis</div>
+    </div>
+    <div class="carousel-slide">
+      <a href="https://www.shwelucks.com/pages/desktop/index" target="_blank">
+      <img src="images/list/3.jpg" alt="Medusa">
+      </a>
+      <div class="carousel-caption">Medusa</div>
+    </div>
+     <div class="carousel-slide">
+      <a href="https://www.shwelucks.com/pages/desktop/index" target="_blank">
+      <img src="images/list/4.jpg" alt="APE">
+      </a>
+      <div class="carousel-caption">Ape</div>
+    </div>
+     <div class="carousel-slide">
+      <a href="https://www.shwelucks.com/pages/desktop/index" target="_blank">
+      <img src="images/list/5.jpg" alt="Wild Bandito">
+      </a>
+      <div class="carousel-caption">Bandito</div>
+    </div>
+     <div class="carousel-slide">
+      <a href="https://www.shwelucks.com/pages/desktop/index" target="_blank">
+      <img src="images/list/6.jpg" alt="Fortune Snake">
+      </a>
+      <div class="carousel-caption">Snake</div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('recommendedTrack');
+    if (track) {
+      track.innerHTML += track.innerHTML;
+    }
+  });
+</script>
+
+
+  <main>
+    <div class="animation-title">
+    <h1>Online Game Entertainment !</h1>
+    </div>
+    <div class="card-container" id="game-list"></div>
+  </main>
+  <script type="module" src="/src/loadGames.js"></script>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+<script>
+function trackClick(page, slot) {
+  fetch("/track-click", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      page,
+      slot,
+      time: new Date().toISOString()
+    })
+  });
+}
+</script>
+
+
+</html>
+

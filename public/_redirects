@@ -1,0 +1,1 @@
+/api/*  https://us-central1-shwelucks-backend.cloudfunctions.net/api/:splat  200

@@ -3,9 +3,10 @@
 const currentPage = "news";
 
 // ✅ 后端 API 地址（开发阶段 localhost，部署可改成正式域名）
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = window.API_BASE || "https://backend1-5xct.onrender.com";
 
-fetch(`${API_BASE}/${currentPage}`) // 从后端获取 JSON 数据
+
+fetch(`${API_BASE}/data/${currentPage}.json`) // 从后端获取 JSON 数据
   .then(response => response.json())
   .then(data => {
     console.log('加载的数据：', data);
@@ -15,15 +16,16 @@ fetch(`${API_BASE}/${currentPage}`) // 从后端获取 JSON 数据
     data.forEach((item, index) => {
       const card = document.createElement('div');
       card.className = 'card';
+      const imageUrl = item.image.startsWith('http')
+      ? item.image
+      : `${API_BASE}${item.image}`;
 
       card.innerHTML = `
         <a href="${item.link}" onclick="trackClick('${currentPage}', ${index})" target="_blank">
-          <img src="${API_BASE}${item.image}" alt="${item.title}" class="card-img" />
-        </a>
-        
+        <img src="${imageUrl}" alt="${item.title}" class="card-img" />
+          </a>
           <h3 class="card-h3">${item.title}</h3>
-          <p class="card-p>${item.desc}</p>`
-        ;
+          <p class="card-p">${item.desc}</p>`;
 
       container.appendChild(card);
     });

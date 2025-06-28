@@ -16,6 +16,7 @@
       <a href="apply.html" onclick="trackClick('home', 'apply')" class="apply-button">Apply</a>
     </div>
   </nav>
+  
 
   <section class="carousel-section">
   <div class="carousel-track" id="carouselTrack">
@@ -73,11 +74,63 @@
     <div class="animation-title">
     <h1>Online Game Entertainment !</h1>
     </div>
+    <div class="slider-container" id="slider">
+  <div class="slider-track" id="track">
+    <!-- 一组图标复制两次，实现无缝滚动 -->
+    <img src="images/icons/pp.png" alt="PP">
+    <img src="images/icons/pg.png" alt="PG">
+    <img src="images/icons/jili.png" alt="JILI">
+    <img src="images/icons/mg.png" alt="MG">
+    <img src="images/icons/pt.png" alt="PT">
+    <img src="images/icons/bng.png" alt="BNG">
+    <img src="images/icons/spade.png" alt="Spade">
+    <img src="images/icons/evoplay.png" alt="Evoplay">
+
+    <!-- 复制一份 -->
+    <img src="images/icons/pp.png" alt="PP">
+    <img src="images/icons/pg.png" alt="PG">
+    <img src="images/icons/jili.png" alt="JILI">
+    <img src="images/icons/mg.png" alt="MG">
+    <img src="images/icons/pt.png" alt="PT">
+    <img src="images/icons/bng.png" alt="BNG">
+    <img src="images/icons/spade.png" alt="Spade">
+    <img src="images/icons/evoplay.png" alt="Evoplay">
+
+    <img src="images/icons/pp.png" alt="PP">
+    <img src="images/icons/pg.png" alt="PG">
+    <img src="images/icons/jili.png" alt="JILI">
+    <img src="images/icons/mg.png" alt="MG">
+    <img src="images/icons/pt.png" alt="PT">
+    <img src="images/icons/bng.png" alt="BNG">
+    <img src="images/icons/spade.png" alt="Spade">
+    <img src="images/icons/evoplay.png" alt="Evoplay">
+  </div>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+
+  // 暂停动画：鼠标悬停或手指触碰时
+  slider.addEventListener('mouseenter', () => {
+    slider.classList.add('paused');
+  });
+  slider.addEventListener('mouseleave', () => {
+    slider.classList.remove('paused');
+  });
+
+  slider.addEventListener('touchstart', () => {
+    slider.classList.add('paused');
+  });
+  slider.addEventListener('touchend', () => {
+    slider.classList.remove('paused');
+  });
+</script>
     <div class="card-container" id="game-list"></div>
   </main>
   <script type="module" src="/src/loadGames.js"></script>
 
   <script type="module" src="/src/main.js"></script>
+
 
 </body>
 <script>

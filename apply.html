@@ -21,7 +21,7 @@
     <h1>Apply for Membership</h1>
     <form class="apply-form">
       <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
+      <input type="Phone Number" placeholder="Phone Number" required />
       <button type="submit">Submit</button>
     </form>
   </main>
@@ -32,7 +32,7 @@
   document.querySelector('.apply-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = e.target.querySelector('input[type="text"]').value;
-    const email = e.target.querySelector('input[type="email"]').value;
+    const PhoneNumber = e.target.querySelector('input[type="PhoneNumber"]').value;
 
     const res = await fetch(`${import.meta.env.VITE_API_BASE}/api/apply`, {
       method: 'POST',
